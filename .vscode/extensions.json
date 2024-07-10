@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "mechatroner.rainbow-csv",
+        "davidanson.vscode-markdownlint",
+        "vivaxy.vscode-conventional-commits"
+    ]
+}
