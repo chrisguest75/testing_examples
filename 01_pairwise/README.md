@@ -1,5 +1,7 @@
 # PICT
 
+Pairwise Independent Combinatorial Testing tool [here](https://github.com/microsoft/pict/blob/main/doc/pict.md)  
+
 ## Install
 
 ```sh
@@ -11,10 +13,22 @@ brew install pict
 
 ```sh
 # cases
-pict ./auth_flow.txt /o:5
+pict ./example1.txt /o:5
 
 # statistics
-pict ./auth_flow.txt /o:5 /s
+pict ./example1.txt /o:5 /s
+```
+
+## Convert
+
+Once converted you can use the `rainbow csv` extension to align the fields.  
+
+```sh
+mkdir -p ./out
+pict ./example1.txt > ./out/example1.tsv
+
+# convert to csv
+tr '\t' ',' < ./out/example1.tsv > ./out/example1.csv
 ```
 
 ## Resources
