@@ -23,6 +23,7 @@ RUN dpkg -i allure_2.30.0-1_all.deb
 COPY --chmod=755 <<EOF /scratch/build_and_host.sh
 #!/usr/bin/env bash
 
+#allure --verbose generate --output /allure-report /allure-results
 allure --verbose generate --clean --output /allure-report /allure-results
 
 #allure serve --port 8080 --host 0.0.0.0 /allure-report
