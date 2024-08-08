@@ -1,5 +1,7 @@
 # ALLURE
 
+Allure test reporting.  
+
 ## Build
 
 ```sh
@@ -11,7 +13,13 @@ docker build --progress=plain -f Dockerfile.allure -t allure .
 
 ```sh
 mkdir -p results
-docker run -v $(pwd)/results:/allure-results -p 8080:8080 --rm -it allure 
+docker run -v $(pwd)/results:/allure-results -p 8080:8080 --name allure --rm -it allure 
+```
+
+## Troubleshooting
+
+```sh
+docker exec -it allure /bin/bash
 ```
 
 ## Resources

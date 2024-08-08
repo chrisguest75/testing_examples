@@ -32,11 +32,13 @@ npm run coverage
 ## Filtering tests
 
 ```sh
+npm exec -- jest --listTests  
+
 # only want to run a specific test file
 npm run test 'tests/wordstore.test.ts' 
 
 # watch and filter
-npm run test -- --watch 'tests/wordstore.test.ts'                       
+npm run test -- --watch 'tests/wordstore.test.ts'
 ```
 
 ## Single step debugging
