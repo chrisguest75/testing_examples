@@ -1,0 +1,32 @@
+# syntax=docker/dockerfile:1.4
+FROM ubuntu:24.04 AS base
+
+ARG DEBIAN_FRONTEND=noninteractive
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_ALL=en_US.UTF-8
+#ENV ALLURE_HOME=/allure-results
+
+RUN apt-get update \
+    && apt-get install -fy -qq --no-install-recommends \
+    ca-certificates curl jq unzip locales \
+    ca-certificates-java default-jre-headless openjdk-21-jre-headless \
+    && apt-get clean
+
+RUN locale-gen en_US.UTF-8
+
+WORKDIR /scratch
+
+RUN curl -sLo allure_2.30.0-1_all.deb https://github.com/allure-framework/allure2/releases/download/2.30.0/allure_2.30.0-1_all.deb
+RUN dpkg -i allure_2.30.0-1_all.deb
+
+COPY --chmod=755 <<EOF /scratch/build_and_host.sh
+#!/usr/bin/env bash
+
+allure --verbose generate --clean --output /allure-report /allure-results
+
+#allure serve --port 8080 --host 0.0.0.0 /allure-report
+allure --verbose open --port 8080 --host 0.0.0.0 /allure-report
+EOF
+
+ENTRYPOINT ["/scratch/build_and_host.sh"]
