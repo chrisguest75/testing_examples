@@ -16,6 +16,8 @@ docker build --progress=plain -f Dockerfile.allure -t allure .
 
 ## Run
 
+### Jest
+
 ```sh
 mkdir -p results
 mkdir -p output
@@ -30,9 +32,25 @@ docker run -v $(pwd)/results:/allure-results -v $(pwd)/output:/allure-report -p 
 rm -rf ./results
 mkdir -p results
 # copy history to results before running tests again
-cp ./output/history ./results/history
+cp -R ./output/history ./results/history
 
 npm run test
+```
+
+### Pytest
+
+```sh
+mkdir -p results
+mkdir -p output
+
+cd ./31_pytest
+pipenv run test
+
+# THIS IS BECAUSE pytest.ini is NOT WORKING
+cp ./allure-results/* ../results
+
+docker run -v $(pwd)/results:/allure-results -v $(pwd)/output:/allure-report -p 8080:8080 --name allure --rm -it allure 
+
 ```
 
 ## Troubleshooting
