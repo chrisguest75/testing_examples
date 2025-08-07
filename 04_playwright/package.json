@@ -1,7 +1,7 @@
 {
   "name": "04_playwright",
   "version": "1.0.0",
-  "description": "Using `cypress` to test simple webpage.",
+  "description": "Using `playwright` to test simple webpage.",
   "main": "index.js",
   "scripts": {},
   "keywords": [],
