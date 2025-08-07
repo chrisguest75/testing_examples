@@ -1,6 +1,10 @@
-# CYPRESS
+# PLAYWRIGHT
 
-Using `cypress` to test simple webpage.  
+Using `playwright` to test simple webpage.  
+
+## NOTES
+
+* There is an extension that allows easy execution and debugging in VSCode. `ms-playwright.playwright`
 
 ## Created
 
