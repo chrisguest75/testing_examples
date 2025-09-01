@@ -32,3 +32,8 @@ test:
   set -xeufo pipefail
   npx playwright test
 
+report:
+  #!/usr/bin/env bash
+  set -xeufo pipefail
+  npx playwright show-report
+  

@@ -8,7 +8,7 @@ TODO:
 
 ## NOTES
 
-* There is an extension that allows easy execution and debugging in VSCode. `ms-playwright.playwright`
+* There is an extension that allows easy execution and debugging in VSCode. `ms-playwright.playwright`. To use it open up this folder in code after running `just nix`.  
 
 ## Created
 
@@ -31,7 +31,7 @@ just install
 
 just test
 
-npx playwright show-report
+just report
 ```
 
 ## Resources
