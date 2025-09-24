@@ -23,7 +23,13 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  /*reporter: 'html',*/
+  // Add junit using date-time to avoid overwriting previous results
+  // reporter: [['junit', { outputFile: `./junit/results-${new Date().toISOString().replace(/[:.]/g, '-')}.xml` }]],
+  // Or always overwrite previous results
+  // reporter: [['junit', { outputFile: './junit/results.xml' }], ['html', { outputFolder: 'html-report', open: 'never' }]],
+  // Both junit and html
+  reporter: [['junit', { outputFile: `./junit/results-${new Date().toISOString().replace(/[:.]/g, '-')}.xml` }], ['html', { outputFolder: 'playwright-report', open: 'never' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
