@@ -26,14 +26,19 @@ install:
   #!/usr/bin/env bash
   set -xeufo pipefail
   npm install
+  echo "# ********************************************"
+  echo "# playwright"
+  echo "# ********************************************"
+  npx playwright install          
+  npx playwright install-deps   
 
 test:
   #!/usr/bin/env bash
   set -xeufo pipefail
   npx playwright test
 
-report:
+report: test
   #!/usr/bin/env bash
   set -xeufo pipefail
-  npx playwright show-report
+  npx playwright show-report --host 0.0.0.0 --port 9323  
   
