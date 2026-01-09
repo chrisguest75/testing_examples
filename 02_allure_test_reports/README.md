@@ -2,6 +2,10 @@
 
 Allure test reporting.  
 
+TODO:
+
+* The demo doesn't seem to work anymore.
+
 NOTES:
 
 * Shows history of results
